@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 :root {
-	color-scheme: light dark;
-	--msg-color: blue;
+    color-scheme: light dark;
+    --msg-color: blue;
     --bg-color: powderblue;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-		--msg-color: red;
-	    --bg-color: black;
-	}
+        --msg-color: red;
+        --bg-color: black;
+    }
 }
 
 body {
@@ -20,10 +20,10 @@ body {
 }
 
 .container {
-	height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .message {
