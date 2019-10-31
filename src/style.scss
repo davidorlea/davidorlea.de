@@ -8,9 +8,17 @@
 body {
     background-color: var(--bg-color);
     font-family: 'Open Sans', sans-serif;
+    margin: 0;
 }
 
-#message {
+.container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.message {
     color: var(--msg-color);
     font-size: 2em;
     text-align: center;
