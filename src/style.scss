@@ -57,6 +57,24 @@ nav li {
     color: var(--msg-color);
 }
 
+@media (max-width: 480px) {
+    nav li {
+        display: block;
+        margin: 15px 0;
+        border-radius: 1em;
+        color: var(--msg-color);
+        text-align: center;
+    }
+
+    nav li:first-child {
+        margin: 0 0 15px 0;
+    }
+
+    nav li:last-child {
+        margin: 15px 0 0 0;
+    }
+}
+
 nav a {
     display: inline-block;
     margin: 0;
