@@ -1,33 +1,76 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600');
 
 :root {
     color-scheme: light dark;
-    --msg-color: blue;
-    --bg-color: powderblue;
+    --msg-color: rgb(127, 165, 185);
+    --bg-color: rgb(212, 237, 252);
+    --link-hover-color: white;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --msg-color: red;
-        --bg-color: black;
+        --msg-color: rgb(127, 165, 185);
+        --bg-color: rgb(212, 237, 252);
     }
 }
 
 body {
+    margin: 0;
+    padding: 0;
     background-color: var(--bg-color);
     font-family: 'Open Sans', sans-serif;
-    margin: 0;
 }
 
 .container {
-    height: 100vh;
     display: flex;
+    height: 100vh;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 
-.message {
+.container img {
+    width: 130px;
+    height: 130px;
+    margin: 15px;
+}
+
+.container h1 {
+    margin: 15px;
     color: var(--msg-color);
     font-size: 2em;
+    font-weight: 600;
     text-align: center;
+}
+
+nav ul {
+    display: table;
+    margin: 15px;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin: 0 5px;
+    border-radius: 1em;
+    color: var(--msg-color);
+}
+
+nav a {
+    display: inline-block;
+    margin: 0;
+    padding: 0 12px;
+    color: inherit;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+nav a span {
+    margin: 0;
+    padding: 0;
+}
+
+nav li:hover {
+    background-color: var(--link-hover-color);
 }
