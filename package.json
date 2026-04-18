@@ -15,8 +15,8 @@
     "clean": "rm -rf build test-results",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "start": "parcel serve --cache-dir build/cache --dist-dir build/dist",
-    "watch": "parcel watch --cache-dir build/cache --dist-dir build/dist",
+    "start": "parcel serve --cache-dir build/cache --dist-dir build/dist --no-hmr",
+    "watch": "parcel watch --cache-dir build/cache --dist-dir build/dist --no-hmr",
     "prebuild": "rm -rf build/dist",
     "build": "parcel build --cache-dir build/cache --dist-dir build/dist --no-source-maps",
     "test": "playwright test"
