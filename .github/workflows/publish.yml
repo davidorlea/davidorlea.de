@@ -25,7 +25,7 @@ jobs:
         with:
           node-version: lts/*
       - name: Install Node.js dependencies
-        run: npm install
+        run: npm ci
       - name: Build web app
         run: npm run build
       - name: Upload artifact
