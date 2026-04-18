@@ -23,7 +23,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6.3.0
         with:
-          node-version: lts/*
+          node-version: 22
       - name: Install Node.js dependencies
         run: npm ci
       - name: Build web app
