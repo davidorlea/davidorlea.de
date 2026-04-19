@@ -22,7 +22,9 @@ test('blocks inline scripts', async ({ page }) => {
     expect(scriptRan).toBe(false);
 });
 
-test('allows scripts from own origin (e.g. Cloudflare /cdn-cgi/)', async ({ page }) => {
+test('allows scripts from own origin (e.g. Cloudflare /cdn-cgi/)', async ({
+    page,
+}) => {
     await page.goto('/');
     const violated = await page.evaluate(() => {
         return new Promise((resolve) => {
