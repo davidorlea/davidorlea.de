@@ -100,7 +100,7 @@ test('has correct meta description', async ({ page }) => {
 
 test('has all navigation links', async ({ page }) => {
     await page.goto('/');
-    await expect(page.getByRole('link', { name: 'Github' })).toHaveAttribute(
+    await expect(page.getByRole('link', { name: 'GitHub' })).toHaveAttribute(
         'href',
         'https://github.com/DavidOrlea',
     );
