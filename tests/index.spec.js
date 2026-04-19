@@ -5,7 +5,7 @@ test('has correct content security policy', async ({ page }) => {
     const csp = page.locator('meta[http-equiv="Content-Security-Policy"]');
     await expect(csp).toHaveAttribute(
         'content',
-        "default-src 'none'; style-src 'unsafe-inline'; font-src 'self'; img-src 'self'; script-src static.cloudflareinsights.com; connect-src cloudflareinsights.com; base-uri 'none'; form-action 'none';",
+        "default-src 'none'; style-src 'unsafe-inline'; font-src 'self'; img-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src cloudflareinsights.com; base-uri 'none'; form-action 'none';",
     );
 });
 
@@ -20,6 +20,26 @@ test('blocks inline scripts', async ({ page }) => {
         () => window.__inlineScriptRan === true,
     );
     expect(scriptRan).toBe(false);
+});
+
+test('allows scripts from own origin (e.g. Cloudflare /cdn-cgi/)', async ({ page }) => {
+    await page.goto('/');
+    const violated = await page.evaluate(() => {
+        return new Promise((resolve) => {
+            document.addEventListener(
+                'securitypolicyviolation',
+                () => resolve(true),
+                {
+                    once: true,
+                },
+            );
+            const script = document.createElement('script');
+            script.src = '/cdn-cgi/some/thing.js';
+            document.head.appendChild(script);
+            setTimeout(() => resolve(false), 500);
+        });
+    });
+    expect(violated).toBe(false);
 });
 
 test('blocks scripts from untrusted origins', async ({ page }) => {
