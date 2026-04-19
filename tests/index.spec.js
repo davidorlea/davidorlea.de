@@ -117,3 +117,27 @@ test('has all navigation links', async ({ page }) => {
         'https://www.xing.com/profile/David_Orlea',
     );
 });
+
+test('all external links have target and rel set', async ({ page }) => {
+    await page.goto('/');
+    for (const anchor of await page.locator('a[data-external]').all()) {
+        await expect(anchor).toHaveAttribute('target', '_blank');
+        await expect(anchor).toHaveAttribute('rel', 'noreferrer');
+    }
+});
+
+test('all external links open in a new tab', async ({ page, context }) => {
+    await page.goto('/');
+    for (const anchor of await page.locator('a[data-external]').all()) {
+        const url = await anchor.getAttribute('href');
+        const [newPage, request] = await Promise.all([
+            context.waitForEvent('page'),
+            context.waitForEvent('request', {
+                predicate: (r) => r.isNavigationRequest(),
+            }),
+            anchor.click(),
+        ]);
+        expect(request.url()).toBe(url);
+        await newPage.close();
+    }
+});
