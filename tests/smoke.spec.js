@@ -9,8 +9,5 @@ test('version matches build', async ({ page }) => {
     test.skip(!process.env.BUILD_VERSION, 'BUILD_VERSION not set');
     await page.goto('/');
     const version = page.locator('meta[name="version"]');
-    await expect(version).toHaveAttribute(
-        'content',
-        process.env.BUILD_VERSION,
-    );
+    await expect(version).toHaveAttribute('content', process.env.BUILD_VERSION);
 });
