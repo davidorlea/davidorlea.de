@@ -21,7 +21,7 @@ jobs:
         with:
           submodules: recursive
       - name: Install Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: 22
       - name: Install Node.js dependencies
@@ -37,7 +37,7 @@ jobs:
         with:
           submodules: recursive
       - name: Install Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: 22
       - name: Install Node.js dependencies
@@ -57,7 +57,7 @@ jobs:
         with:
           submodules: recursive
       - name: Install Node.js
-        uses: actions/setup-node@v6.3.0
+        uses: actions/setup-node@v6.4.0
         with:
           node-version: 22
       - name: Install Node.js dependencies
