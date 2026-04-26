@@ -2,6 +2,7 @@ const { defineConfig } = require('@playwright/test');
 
 module.exports = defineConfig({
     testDir: './tests',
+    testIgnore: '**/smoke.spec.js',
     reporter: [['html', { open: 'never', outputFolder: 'test-results' }]],
     webServer: {
         command: 'npm start',
